@@ -24,6 +24,16 @@ class ControlActivity : AppCompatActivity() {
         setContentView(binding.root)
         onBtListResult()
         init()
+        binding.apply {
+            bA.setOnClickListener{
+                btConnection.sendMessage("1")
+            }
+            bB.setOnClickListener{
+                btConnection.sendMessage("49")
+            }
+
+        }
+
     }
 
     private fun init(){
