@@ -29,7 +29,7 @@ class ControlActivity : AppCompatActivity() {
                 btConnection.sendMessage("1")
             }
             bB.setOnClickListener{
-                btConnection.sendMessage("49")
+                btConnection.sendMessage("0")
             }
 
         }
