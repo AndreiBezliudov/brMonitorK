@@ -21,10 +21,18 @@
         android:id="@+id/bB"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
         android:text="Send B"
         app:layout_constraintBottom_toTopOf="@+id/bA"
         app:layout_constraintEnd_toEndOf="@+id/bA"
         app:layout_constraintStart_toStartOf="@+id/bA" />
+
+    <TextView
+        android:id="@+id/tvMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/bB"
+        app:layout_constraintEnd_toEndOf="@+id/bB"
+        app:layout_constraintStart_toStartOf="@+id/bB"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,7 +12,7 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import com.example.brmonitork.databinding.ActivityControlBinding
 
-class ControlActivity : AppCompatActivity() {
+class ControlActivity : AppCompatActivity(), ReceiveThread.Listener {
     private lateinit var binding: ActivityControlBinding
     private lateinit var actListLauncher: ActivityResultLauncher<Intent>
     lateinit var btConnection: BtConnection
@@ -39,7 +39,7 @@ class ControlActivity : AppCompatActivity() {
     private fun init(){
         val btManager = getSystemService(Context.BLUETOOTH_SERVICE) as BluetoothManager
         val btAdapter = btManager.adapter
-        btConnection = BtConnection(btAdapter)
+        btConnection = BtConnection(btAdapter, this)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -64,6 +64,12 @@ class ControlActivity : AppCompatActivity() {
             if(it.resultCode == RESULT_OK){
                 listItem = it.data?.getSerializableExtra(BtListActivity.DEVICE_KEY) as ListItem
             }
+        }
+    }
+
+    override fun onReceive(message: String) {
+        runOnUiThread {
+            binding.tvMessage.text = message
         }
     }
 }
