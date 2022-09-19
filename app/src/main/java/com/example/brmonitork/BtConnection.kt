@@ -17,4 +17,5 @@ class BtConnection(private val adapter: BluetoothAdapter, private val listener: 
         cThread.rThread.sendMessage(message.toByteArray())
     }
 
+
 }
